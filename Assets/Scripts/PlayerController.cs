@@ -27,7 +27,8 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            GameManager.instance.PauseMenuUI();
+            if (gameOver != true)
+                GameManager.instance.PauseMenuUI();
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -37,7 +38,8 @@ public class PlayerController : MonoBehaviour
             isOnGround = true;
         }
         else if (collision.gameObject.CompareTag("Enemy"))
-        {
+        {            
+            GameManager.instance.GameOverMenuUI();
             gameOver = true;
         }
             

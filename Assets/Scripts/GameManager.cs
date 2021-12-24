@@ -10,30 +10,30 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    [SerializeField] GameObject pauseMenuUI;    
+    [SerializeField] GameObject pauseMenuUI;
+    [SerializeField] GameObject gameOverUI;
 
-    bool gameIsPaused = false;
     void Awake()
     {
-        if (instance != null)
+        /*if (instance != null)
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
             return;
-        }
+        }*/
         instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);        
     }
 
     public void PauseMenuUI()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
-        gameIsPaused = true;
     }
 
-    void GameOverMenuUI()
+    public void GameOverMenuUI()
     {       
-        
+        gameOverUI.SetActive(true);
+        Time.timeScale = 0f;
     }
     
     public void Resume()
