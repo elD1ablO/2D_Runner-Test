@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool isOnGround = true;
 
     private Rigidbody2D playerRb;
+    bool gameOver = false;
     
 
     void Start()
@@ -23,10 +24,22 @@ public class PlayerController : MonoBehaviour
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
             isOnGround = false;
-        }        
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameManager.instance.PauseMenuUI();
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        isOnGround = true;
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isOnGround = true;
+        }
+        else if (collision.gameObject.CompareTag("Enemy"))
+        {
+            gameOver = true;
+        }
+            
     }
 }
