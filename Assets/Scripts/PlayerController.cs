@@ -34,17 +34,11 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround && rotatePlayer == false)
         {
-            playerRb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
-            isOnGround = false;
-            playerAudioSource.PlayOneShot(jumpSound);
-            playerAnim.SetTrigger("Jump");
+            Jump(jumpForce);
         }
         else if (Input.GetKeyDown(KeyCode.Space) && isOnGround && rotatePlayer == true)
         {
-            playerRb.AddForce(Vector3.up * -jumpForce, ForceMode2D.Impulse);
-            isOnGround = false;
-            playerAudioSource.PlayOneShot(jumpSound);
-            playerAnim.SetTrigger("Jump");
+            Jump(-jumpForce);
         }
 
         else if (isOnGround == true)
@@ -88,5 +82,13 @@ public class PlayerController : MonoBehaviour
         }
 
         rotatePlayer = !rotatePlayer;
+    }
+
+    void Jump(float _jumpForce)
+    {
+        playerRb.AddForce(Vector3.up * _jumpForce, ForceMode2D.Impulse);
+        isOnGround = false;
+        playerAudioSource.PlayOneShot(jumpSound);
+        playerAnim.SetTrigger("Jump");
     }
 }
