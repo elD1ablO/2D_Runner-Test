@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    
     public GameObject[] obstaclePrefs;
 
     Vector2 spawnPosition = new Vector2(18, -3.5f);
@@ -11,7 +12,7 @@ public class SpawnManager : MonoBehaviour
     float startDelay = 2;
     float repeatRate = 2;
     void Start()
-    {        
+    {                
         InvokeRepeating("SpawnObstacle", startDelay, repeatRate);
     }
 

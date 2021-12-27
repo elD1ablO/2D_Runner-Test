@@ -8,13 +8,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool isOnGround = true;
 
     private Rigidbody2D playerRb;
+    private Animator playerAnim;
     bool gameOver = false;
     
 
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
-        
+        playerAnim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -24,7 +25,11 @@ public class PlayerController : MonoBehaviour
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
             isOnGround = false;
+            playerAnim.SetTrigger("Jump");
         }
+        else if (isOnGround == true)
+            playerAnim.SetTrigger("Run");
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (gameOver != true)

@@ -1798,6 +1798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstaclePrefs:
   - {fileID: 7000934963144922337, guid: 0b54a758f3c0b2f42810bfa91545d006, type: 3}
+  - {fileID: 2313096905158312206, guid: 5944cdaf9d64e7241bbcd076a7a6f399, type: 3}
 --- !u!4 &1509273634
 Transform:
   m_ObjectHideFlags: 0
@@ -2563,6 +2564,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6355725736774776903, guid: c3f18f2d3f9000f418b8ab87cf79ecb9, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: aac1b0bf461a0fa4b8e7308be785dede, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3f18f2d3f9000f418b8ab87cf79ecb9, type: 3}
 --- !u!1001 &8992813422572787696
