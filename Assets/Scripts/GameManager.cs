@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void GameOverMenuUI()
-    {       
+    {
         gameOverUI.SetActive(true);
         Time.timeScale = 0f;
     }
