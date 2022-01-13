@@ -18,6 +18,6 @@ public class SpawnManager : MonoBehaviour
     {
         int enemyRandomizer = Random.Range(0, obstaclePrefs.Length);
         Vector2 spawnPosition = new Vector2(18, Random.Range(-3.5f, 3f));
-        Instantiate(obstaclePrefs[enemyRandomizer], spawnPosition, obstaclePrefs[enemyRandomizer].transform.rotation);
+        Instantiate(obstaclePrefs[enemyRandomizer], spawnPosition, Quaternion.identity);
     }
 }

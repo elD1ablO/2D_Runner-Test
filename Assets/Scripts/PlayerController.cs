@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private Animator playerAnim;
     private AudioSource playerAudioSource;
     private SpriteRenderer playerSprite;
+    private int antiGravity = -1;
 
     Vector2 upsideRotation = new Vector2(180,0);
 
@@ -46,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
         else if (Input.GetKeyDown(KeyCode.Space) && !isOnGround)
         {
-            playerRb.gravityScale *= -1;
+            playerRb.gravityScale *= antiGravity;
             Rotate();            
         }
 
